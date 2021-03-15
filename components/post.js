@@ -1,14 +1,8 @@
 import React from 'react';
-
 import { Stack, Avatar, Image, Text, Button, Element } from 'react-ui';
 
-export const Post = ({
-  post,
-  selectedPostId,
-  setSelectedPostId,
-  standalone = false,
-}) => {
-  const rootProps = standalone
+export const Post = ({ post, setSelectedPostId, dedicatedPage = false }) => {
+  const rootProps = dedicatedPage
     ? { as: 'div' }
     : {
         as: 'a',
@@ -37,8 +31,8 @@ export const Post = ({
           borderColor: 'grays.200',
           background: 'white',
           ':hover': {
-            cursor: standalone ? 'default' : 'pointer',
-            backgroundColor: standalone ? '' : 'grays.100',
+            cursor: dedicatedPage ? 'default' : 'pointer',
+            backgroundColor: dedicatedPage ? '' : 'grays.100',
           },
           '&:first-child': {
             borderTopRadius: 2,
@@ -50,7 +44,7 @@ export const Post = ({
             <Avatar src={post.author.avatar} size="medium" />
             <span>{post.author.name}</span>
           </Stack>
-          {standalone && (
+          {dedicatedPage && (
             <Button
               autoFocus
               variant="icon"

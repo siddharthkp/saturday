@@ -6,5 +6,5 @@ export async function getServerSideProps(context) {
 }
 
 export default function Page(props) {
-  return <Home {...props} isStandalone />;
+  return <Home {...props} />;
 }

@@ -13,12 +13,14 @@ export default function Home({ initialPostId = null }) {
   );
 
   const mainRef = React.useRef(null);
-
-  React.useEffect(() => {
-    if (mainRef.current && !selectedPostId) {
-      mainRef.current.scrollTo({ top: history.state?.scrollPosition });
-    }
-  }, [selectedPostId]);
+  React.useEffect(
+    function scrollBack() {
+      if (mainRef.current && !selectedPostId) {
+        mainRef.current.scrollTo({ top: history.state?.scrollPosition });
+      }
+    },
+    [selectedPostId]
+  );
 
   return (
     <Stack direction="vertical" css={{ height: '100vh', overflow: 'hidden' }}>
@@ -102,7 +104,7 @@ const SelectedPost = ({ dedicatedPage, selectedPostId, setSelectedPostId }) => {
             style={{ zIndex: 2, width: 'calc(100% - 48px)', maxWidth: 600 }}
           >
             <Post
-              standalone
+              dedicatedPage
               post={selectedPost}
               selectedPostId={selectedPostId}
               setSelectedPostId={setSelectedPostId}
