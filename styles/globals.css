@@ -31,8 +31,3 @@ p {
 ul {
   list-style: none;
 }
-
-* {
-  transition: color 250ms, background-color 250ms, opacity 250ms,
-    transform 250ms;
-}

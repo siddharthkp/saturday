@@ -1,23 +1,28 @@
 import React from 'react';
-import Link from 'next/link';
-import { Stack, Image } from 'react-ui';
+import { Stack, Image, Element } from 'react-ui';
 
-export const Header = ({ isHome = false }) => {
+export const Header = ({ isHome = false, setSelectedPostId }) => {
   return (
     <Stack
       as="header"
       justify="center"
-      marginBottom={16}
-      css={{
-        opacity: 0.5,
-        ':hover': !isHome && { opacity: 1, transform: 'scale(1.05)' },
-      }}
+      css={{ height: 160, background: 'white', paddingY: 1 }}
     >
-      <Link href="/" css={{ cursor: 'pointer' }}>
-        <a>
-          <Image width="200px" src="/logo.png" />
-        </a>
-      </Link>
+      <Element
+        as="a"
+        href="#"
+        css={{
+          opacity: 0.5,
+          cursor: 'pointer',
+          ':hover, :focus': !isHome && {
+            opacity: 1,
+            transform: 'scale(1.05)',
+          },
+        }}
+        onClick={() => setSelectedPostId(null)}
+      >
+        <Image width="200px" src="/logo.png" />
+      </Element>
     </Stack>
   );
 };

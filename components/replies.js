@@ -5,7 +5,7 @@ import { user } from '../data';
 
 export const Replies = ({ post, replies = [] }) => {
   return (
-    <section>
+    <>
       <VisuallyHidden>
         <span>Replies</span>
       </VisuallyHidden>
@@ -32,6 +32,6 @@ export const Replies = ({ post, replies = [] }) => {
           </Stack>
         </li>
       </Stack>
-    </section>
+    </>
   );
 };
