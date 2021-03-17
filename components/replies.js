@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Stack, Avatar, Text, Input } from 'react-ui';
 import VisuallyHidden from '@reach/visually-hidden';
 import { user } from '../data';
@@ -9,8 +9,6 @@ import { ago } from '../utils';
 export const Replies = ({ post }) => {
   const { actions, dispatch } = useState();
   const replies = post.replies || [];
-
-  const [hasFocus, setFocus] = React.useState(false);
 
   return (
     <>
@@ -31,6 +29,7 @@ export const Replies = ({ post }) => {
             align="center"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
+            transition={{ duration: 0.2, delay: 0.5 }}
           >
             <Stack align="center" gap={2}>
               <Stack gap={2} align="center">
@@ -45,7 +44,11 @@ export const Replies = ({ post }) => {
           </Stack>
         ))}
 
-        <li>
+        <motion.li
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.2, delay: 0.5 }}
+        >
           <Stack>
             <Stack
               as="form"
@@ -72,12 +75,10 @@ export const Replies = ({ post }) => {
                 placeholder={`Reply to ${post.author.name}`}
                 autoComplete="off"
                 css={{ paddingX: 0, height: 'Avatar.small' }}
-                onFocus={() => setFocus(true)}
-                onBlur={() => setFocus(false)}
               />
             </Stack>
           </Stack>
-        </li>
+        </motion.li>
       </Stack>
     </>
   );
