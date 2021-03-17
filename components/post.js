@@ -11,7 +11,7 @@ export const Post = ({ post, onSelect, isPermalink = false }) => {
     dispatch,
   } = useState();
 
-  const rootProps = isPermalink
+  const rootProps = selectedPostId
     ? { as: 'div' }
     : {
         as: 'a',

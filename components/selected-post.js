@@ -51,9 +51,9 @@ export const SelectedPost = () => {
           }}
         >
           <motion.article
-            initial={{ y: initialY }}
-            animate={{ y: 0, transition: { duration: 0.2, delay: 0.1 } }}
-            exit={{ y: initialY, transition: { duration: 0.2 } }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             style={{ zIndex: 2, width: '100%', maxWidth: 600 }}
             drag="y"
             dragConstraints={{ top: 0, bottom: 0 }}
@@ -70,12 +70,9 @@ export const SelectedPost = () => {
           >
             <Post post={selectedPost} isPermalink />
             <motion.section
-              initial={{ height: 0 }}
-              animate={{
-                height: 'auto',
-                transition: { delay: 0.4, duration: 0.2 },
-              }}
-              exit={{ height: 0, transition: { duration: 0.2 } }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
               style={{ overflow: 'hidden' }}
             >
               <Replies post={selectedPost} />

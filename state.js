@@ -17,7 +17,7 @@ export const reducer = (state, action) => {
       return { ...state, selectedPostId: action.payload.id };
     }
     case actions.DESELECT_POST: {
-      return { ...state, selectedPostId: null, isPermalink: false };
+      return { ...state, selectedPostId: null };
     }
     case actions.ADD_COMMENT: {
       const { postId, reply } = action.payload;

@@ -29,8 +29,8 @@ export const Replies = ({ post }) => {
             key={index}
             justify="space-between"
             align="center"
-            initial={{ y: 20 }}
-            animate={{ y: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
           >
             <Stack align="center" gap={2}>
               <Stack gap={2} align="center">
@@ -64,22 +64,7 @@ export const Replies = ({ post }) => {
               }}
             >
               <Avatar src={user.avatar} size="small" />
-              <AnimatePresence initial={false}>
-                {hasFocus && (
-                  <Stack
-                    align="center"
-                    gap={2}
-                    as={motion.div}
-                    initial={{ width: 0, x: -40 }}
-                    animate={{ width: 36, x: 0 }}
-                    exit={{ width: 0, x: -40 }}
-                    transition={{ duration: 0.2 }}
-                    style={{ overflow: 'hidden' }}
-                  >
-                    <Text variant="subtle">{user.name}</Text>
-                  </Stack>
-                )}
-              </AnimatePresence>
+
               <Input
                 name="reply"
                 type="text"
