@@ -14,12 +14,13 @@ export const posts = [
       avatar:
         'https://pbs.twimg.com/profile_images/1355515222455447554/vh5ohEKK_400x400.jpg',
     },
-    timestamp: '10:07 AM · Feb 19, 2021',
+    timestamp: 'Mar 19, 2021 10:07 AM',
     body: `
 I turned 21 today! 🥳🎂
 
 The ONLY thing that kept me excited for today this year was seeing Twitter making balloons float on my profile. 🤣🤣
 `,
+    replies: [],
   },
   {
     id: 'asui3',
@@ -29,7 +30,7 @@ The ONLY thing that kept me excited for today this year was seeing Twitter makin
       avatar:
         'https://pbs.twimg.com/profile_images/1007052431295856640/9D9qHTV6_400x400.jpg',
     },
-    timestamp: '11:40 AM · Mar 11, 2021',
+    timestamp: 'Mar 19, 2021 10:07 AM',
     style: { whiteSpace: 'pre' },
     body: `
           guys on twitter with great                highly experienced 
@@ -48,6 +49,7 @@ The ONLY thing that kept me excited for today this year was seeing Twitter makin
             'https://pbs.twimg.com/profile_images/1298933888169971712/fj0dQ0M9_400x400.jpg',
         },
         body: `🥵`,
+        timestamp: 'Mar 19, 2021 10:07 AM',
       },
       {
         author: {
@@ -57,8 +59,28 @@ The ONLY thing that kept me excited for today this year was seeing Twitter makin
             'https://pbs.twimg.com/profile_images/1366050993964605441/4lJJUpr7_400x400.jpg',
         },
         body: `ouch!`,
+        timestamp: 'Mar 19, 2021 10:07 AM',
       },
     ],
+  },
+  {
+    id: 'po3po',
+    author: {
+      name: 'Neha',
+      username: 'hellonehha',
+      avatar:
+        'https://pbs.twimg.com/profile_images/1279389930620215296/QFbB4JhB_400x400.jpg',
+    },
+    timestamp: 'Mar 19, 2021 10:07 AM',
+    body: `Amazing things will happen 💖
+    
+    Art + calligraphy`,
+    embed: {
+      type: 'image',
+      image:
+        'https://pbs.twimg.com/media/EwlCOMBVkAEUK1L?format=jpg&name=medium',
+    },
+    replies: [],
   },
   {
     id: 'aa3i3',
@@ -67,7 +89,7 @@ The ONLY thing that kept me excited for today this year was seeing Twitter makin
       username: '_prateekbh',
       avatar: 'https://github.com/prateekbh.png',
     },
-    timestamp: '1:54PM · Jan 22, 2021',
+    timestamp: 'Mar 19, 2021 10:07 AM',
     body: `Opening my Github profile repo for AMA:`,
     embed: {
       type: 'github',
@@ -78,21 +100,33 @@ The ONLY thing that kept me excited for today this year was seeing Twitter makin
         href: 'https://github.com/prateekbh/prateekbh/issues',
       },
     },
+    replies: [],
+  },
+];
+
+export const newPosts = [
+  {
+    id: 'pe3oc',
+    author: {
+      name: 'Sanket Sahu',
+      username: 'sanketsahu',
+      avatar:
+        'https://pbs.twimg.com/profile_images/1369921787568422915/hoyvrUpc_400x400.jpg',
+    },
+    body: `People outside elevators queue but inside they stack.`,
+    timestamp: new Date(),
+    replies: [],
   },
   {
-    id: 'po3po',
+    id: 'srbh2',
     author: {
-      name: 'Neha',
-      username: 'hellonehha',
+      name: 'Saurabh',
+      username: 'saurabhcodes',
       avatar:
-        'https://pbs.twimg.com/profile_images/1279389930620215296/QFbB4JhB_400x400.jpg',
+        'https://pbs.twimg.com/profile_images/1342537950651764737/vRpqLxVF_400x400.jpg',
     },
-    timestamp: '11:03 AM · Mar 12, 2021',
-    body: `🌆`,
-    embed: {
-      type: 'image',
-      image:
-        'https://pbs.twimg.com/media/EwDDrgdWEAIQiT7?format=jpg&name=medium',
-    },
+    body: `We randomly decided to walk 12km as an evening walk 🤭`,
+    timestamp: new Date(),
+    replies: [],
   },
 ];

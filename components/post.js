@@ -1,18 +1,30 @@
 import React from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Stack, Avatar, Image, Text, Button, Element } from 'react-ui';
+import { useState } from '../state';
+import { ago } from '../utils';
 
-export const Post = ({ post, setSelectedPostId, dedicatedPage = false }) => {
-  const rootProps = dedicatedPage
+export const Post = ({ post, onSelect, isPermalink = false }) => {
+  const {
+    state: { selectedPostId },
+    actions,
+    dispatch,
+  } = useState();
+
+  const rootProps = isPermalink
     ? { as: 'div' }
     : {
         as: 'a',
         href: '#',
-        onClick: () => setSelectedPostId(post.id),
+        onClick: () => {
+          onSelect();
+          dispatch({ type: actions.SELECT_POST, payload: { id: post.id } });
+        },
       };
 
   React.useEffect(() => {
     const handler = (event) => {
-      if (event.which === 27) setSelectedPostId(null);
+      if (event.which === 27) dispatch({ type: actions.DESELECT_POST });
     };
     window.addEventListener('keydown', handler);
     return () => window.removeEventListener('keydown', handler);
@@ -24,15 +36,15 @@ export const Post = ({ post, setSelectedPostId, dedicatedPage = false }) => {
         direction="vertical"
         gap={4}
         css={{
-          paddingX: 2,
+          paddingX: 6,
           paddingTop: 6,
           paddingBottom: 4,
           borderBottom: '1px solid',
           borderColor: 'grays.200',
-          background: 'white',
+          backgroundColor: 'white',
           ':hover': {
-            cursor: dedicatedPage ? 'default' : 'pointer',
-            backgroundColor: dedicatedPage ? '' : 'grays.100',
+            cursor: isPermalink ? 'default' : 'pointer',
+            backgroundColor: isPermalink ? 'white' : 'grays.100',
           },
           '&:first-child': {
             borderTopRadius: 2,
@@ -44,16 +56,22 @@ export const Post = ({ post, setSelectedPostId, dedicatedPage = false }) => {
             <Avatar src={post.author.avatar} size="medium" />
             <span>{post.author.name}</span>
           </Stack>
-          {dedicatedPage && (
-            <Button
-              autoFocus
-              variant="icon"
-              onClick={() => setSelectedPostId(null)}
-              css={{ paddingX: 0, size: 10 }}
-            >
-              <CloseIcon />
-            </Button>
-          )}
+
+          <AnimatePresence>
+            {isPermalink && selectedPostId && (
+              <Button
+                as={motion.button}
+                variant="icon"
+                onClick={() => dispatch({ type: actions.DESELECT_POST })}
+                css={{ paddingX: 0, size: 10 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1, transition: { delay: 0.5 } }}
+                exit={{ opacity: 0, transition: { duration: 0.01 } }}
+              >
+                <CloseIcon />
+              </Button>
+            )}
+          </AnimatePresence>
         </Stack>
 
         <div style={post.style || { whiteSpace: 'pre-line' }}>{post.body}</div>
@@ -92,10 +110,12 @@ export const Post = ({ post, setSelectedPostId, dedicatedPage = false }) => {
         <Stack justify="space-between" css={{ paddingTop: 4 }}>
           <Stack href="/reply" align="center" gap={1}>
             <ReplyIcon />
-            <Text size={3}>{post.replies?.length}</Text>
+            {post.replies.length ? (
+              <Text size={3}>{post.replies.length}</Text>
+            ) : null}
           </Stack>
 
-          <Text size={3}>{post.timestamp}</Text>
+          <Text size={3}>{ago(post.timestamp)}</Text>
         </Stack>
       </Stack>
     </Element>

@@ -1,3 +1,4 @@
+import React from 'react';
 import { ThemeProvider } from 'react-ui';
 import theme from 'react-ui/themes/light';
 import Head from 'next/head';
@@ -41,6 +42,7 @@ function MyApp({ Component, pageProps, router }) {
         <title>saturday</title>
         <link rel="icon" href="/favicon.png" />
       </Head>
+
       <ThemeProvider tokens={theme.tokens} components={theme.components}>
         <>
           <section

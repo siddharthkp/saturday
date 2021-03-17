@@ -8,6 +8,8 @@
     "start": "next start"
   },
   "dependencies": {
+    "date-fns": "^2.19.0",
+    "focus-trap-react": "^8.4.2",
     "framer-motion": "^3.10.3",
     "next": "10.0.8",
     "react": "17.0.1",

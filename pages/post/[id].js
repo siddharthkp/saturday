@@ -1,10 +1,15 @@
 import React from 'react';
-import Home from '../index';
+import { App } from '../../components/app';
+import { Feed } from '../../components/feed';
 
 export async function getServerSideProps(context) {
   return { props: { initialPostId: context.query.id } };
 }
 
 export default function Page(props) {
-  return <Home {...props} />;
+  return (
+    <App {...props}>
+      <Feed />
+    </App>
+  );
 }

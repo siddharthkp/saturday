@@ -1,15 +1,27 @@
 import React from 'react';
 import { Stack, Image, Element } from 'react-ui';
+import { useState } from '../state';
 
-export const Header = ({ isHome = false, setSelectedPostId }) => {
+export const HEADER_HEIGHT = 88;
+
+export const Header = ({ isHome = false }) => {
+  const { actions, dispatch } = useState();
+
   return (
-    <Stack
+    <Element
       as="header"
-      justify="center"
-      css={{ height: 160, background: 'white', paddingY: 1 }}
+      css={{
+        height: HEADER_HEIGHT,
+        background: 'white',
+        paddingY: 2,
+        borderBottom: '1px solid',
+        borderColor: 'grays.200',
+        zIndex: 2,
+      }}
     >
-      <Element
+      <Stack
         as="a"
+        justify="center"
         href="#"
         css={{
           opacity: 0.5,
@@ -19,10 +31,14 @@ export const Header = ({ isHome = false, setSelectedPostId }) => {
             transform: 'scale(1.05)',
           },
         }}
-        onClick={() => setSelectedPostId(null)}
+        onClick={() => dispatch({ type: actions.DESELECT_POST })}
+        onContextMenu={(event) => {
+          event.preventDefault();
+          dispatch({ type: actions.LOAD_NEW_POSTS });
+        }}
       >
         <Image width="200px" src="/logo.png" />
-      </Element>
-    </Stack>
+      </Stack>
+    </Element>
   );
 };
