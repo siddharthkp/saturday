@@ -35,9 +35,7 @@ export const SelectedPost = () => {
   return (
     <AnimatePresence
       initial={isPermalink ? false : true}
-      onExitComplete={() => {
-        history.pushState(null, null, '/');
-      }}
+      onExitComplete={() => history.pushState(null, null, '/')}
     >
       {selectedPostId && (
         <section
@@ -69,18 +67,7 @@ export const SelectedPost = () => {
             }}
           >
             <Post post={selectedPost} isPermalink />
-            <motion.section
-              initial={{ height: 0, y: -40 }}
-              animate={{
-                height: 'auto',
-                y: 0,
-                transition: { delay: 0.5, duration: 0.2 },
-              }}
-              exit={{ height: 0, transition: { duration: 0.2 } }}
-              style={{ overflow: 'hidden' }}
-            >
-              <Replies post={selectedPost} />
-            </motion.section>
+            <Replies post={selectedPost} />
           </motion.article>
 
           <motion.div

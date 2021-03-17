@@ -13,7 +13,16 @@ export const Replies = ({ post }) => {
   const [hasFocus, setFocus] = React.useState(false);
 
   return (
-    <>
+    <motion.section
+      initial={{ height: 0, y: -40 }}
+      animate={{
+        height: 'auto',
+        y: 0,
+        transition: { delay: 0.5, duration: 0.2 },
+      }}
+      exit={{ height: 0, transition: { duration: 0.2 } }}
+      style={{ overflow: 'hidden' }}
+    >
       <VisuallyHidden>
         <span>Replies</span>
       </VisuallyHidden>
@@ -95,6 +104,6 @@ export const Replies = ({ post }) => {
           </Stack>
         </li>
       </Stack>
-    </>
+    </motion.section>
   );
 };
