@@ -52,7 +52,7 @@ export const SelectedPost = () => {
         >
           <motion.article
             initial={{ y: initialY }}
-            animate={{ y: 0, transition: { duration: 0.2, delay: 0.1 } }}
+            animate={{ y: 0, transition: { duration: 0.3, delay: 0.1 } }}
             exit={{ y: initialY, transition: { duration: 0.2 } }}
             style={{ zIndex: 2, width: '100%', maxWidth: 600 }}
             drag="y"
@@ -70,10 +70,11 @@ export const SelectedPost = () => {
           >
             <Post post={selectedPost} isPermalink />
             <motion.section
-              initial={{ height: 0 }}
+              initial={{ height: 0, y: -40 }}
               animate={{
                 height: 'auto',
-                transition: { delay: 0.4, duration: 0.2 },
+                y: 0,
+                transition: { delay: 0.5, duration: 0.2 },
               }}
               exit={{ height: 0, transition: { duration: 0.2 } }}
               style={{ overflow: 'hidden' }}
