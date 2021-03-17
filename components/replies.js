@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Stack, Avatar, Text, Input } from 'react-ui';
 import VisuallyHidden from '@reach/visually-hidden';
 
@@ -15,7 +16,10 @@ export const Replies = ({ post }) => {
         <span>Replies</span>
       </VisuallyHidden>
       <Stack
-        as="ul"
+        as={motion.ul}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.01, delay: 1 }}
         direction="vertical"
         gap={4}
         css={{ paddingY: 8, paddingX: 6 }}
