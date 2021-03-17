@@ -18,13 +18,14 @@ export const Replies = ({ post }) => {
         <span>Replies</span>
       </VisuallyHidden>
       <Stack
-        as={motion.ul}
+        as="ul"
         direction="vertical"
         gap={4}
         css={{ paddingY: 8, paddingX: 6 }}
       >
         {replies.map((reply, index) => (
           <Stack
+            as={motion.li}
             key={index}
             justify="space-between"
             align="center"

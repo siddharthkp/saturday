@@ -63,10 +63,15 @@ export const Post = ({ post, onSelect, isPermalink = false }) => {
                 as={motion.button}
                 variant="icon"
                 onClick={() => dispatch({ type: actions.DESELECT_POST })}
-                css={{ paddingX: 0, size: 10 }}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1, transition: { delay: 0.5 } }}
                 exit={{ opacity: 0, transition: { duration: 0.01 } }}
+                css={{
+                  paddingX: 0,
+                  size: 10,
+                  marginRight: -12,
+                  marginTop: -4,
+                }}
               >
                 <CloseIcon />
               </Button>
@@ -78,7 +83,10 @@ export const Post = ({ post, onSelect, isPermalink = false }) => {
         {post.embed && (
           <div>
             {post.embed.type === 'image' && (
-              <Image src={post.embed.image} css={{ borderRadius: 2 }} />
+              <Image
+                src={post.embed.image}
+                css={{ borderRadius: 2, maxHeight: '40vh', objectFit: 'cover' }}
+              />
             )}
             {post.embed.type === 'github' && (
               <Stack

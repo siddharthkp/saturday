@@ -4,8 +4,8 @@ import { useState } from '../state';
 
 export const HEADER_HEIGHT = 88;
 
-export const Header = ({ isHome = false }) => {
-  const { actions, dispatch } = useState();
+export const Header = ({ isHome = false, scrollTop }) => {
+  const { state, actions, dispatch } = useState();
 
   return (
     <Element
@@ -31,7 +31,10 @@ export const Header = ({ isHome = false }) => {
             transform: 'scale(1.05)',
           },
         }}
-        onClick={() => dispatch({ type: actions.DESELECT_POST })}
+        onClick={() => {
+          if (state.selectedPostId) dispatch({ type: actions.DESELECT_POST });
+          else scrollTop();
+        }}
         onContextMenu={(event) => {
           event.preventDefault();
           dispatch({ type: actions.LOAD_NEW_POSTS });

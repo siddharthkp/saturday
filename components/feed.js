@@ -1,8 +1,6 @@
 import React from 'react';
-import FocusTrap from 'focus-trap-react';
 import { Stack, Button } from 'react-ui';
 import { motion, AnimatePresence } from 'framer-motion';
-
 import { Post } from './post';
 import { Header, HEADER_HEIGHT } from './header';
 import { Replies } from './replies';
@@ -27,7 +25,12 @@ export const Feed = () => {
 
   return (
     <Stack direction="vertical" css={{ height: '100vh', overflow: 'hidden' }}>
-      <Header isHome={true} />
+      <Header
+        isHome={true}
+        scrollTop={() => {
+          mainRef.current.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+        }}
+      />
 
       <main
         ref={mainRef}
@@ -120,39 +123,38 @@ const SelectedPost = ({}) => {
             justifyContent: 'center',
           }}
         >
-          <FocusTrap>
-            <motion.article
-              initial={{ y: initialY }}
-              animate={{ y: 0, transition: { duration: 0.2, delay: 0.1 } }}
-              exit={{ y: initialY, transition: { duration: 0.2 } }}
-              style={{ zIndex: 2, width: '100%', maxWidth: 600 }}
-              drag="y"
-              dragConstraints={{ top: 0, bottom: 0 }}
-              dragMomentum={false}
-              onDrag={(event, info) => {
-                setDragOffset(info.offset.y);
+          <motion.article
+            initial={{ y: initialY }}
+            animate={{ y: 0, transition: { duration: 0.2, delay: 0.1 } }}
+            exit={{ y: initialY, transition: { duration: 0.2 } }}
+            style={{ zIndex: 2, width: '100%', maxWidth: 600 }}
+            drag="y"
+            dragConstraints={{ top: 0, bottom: 0 }}
+            dragMomentum={false}
+            onDrag={(event, info) => {
+              setDragOffset(info.offset.y);
+            }}
+            onDragEnd={(event, info) => {
+              setDragOffset(0);
+              if (info.offset.y > 100 || info.offset.y < -100) {
+                dispatch({ type: actions.DESELECT_POST });
+              }
+            }}
+          >
+            <Post post={selectedPost} isPermalink />
+            <motion.section
+              initial={{ height: 0 }}
+              animate={{
+                height: 'auto',
+                transition: { delay: 0.4, duration: 0.2 },
               }}
-              onDragEnd={(event, info) => {
-                setDragOffset(0);
-                if (info.offset.y > 100) {
-                  dispatch({ type: actions.DESELECT_POST });
-                }
-              }}
+              exit={{ height: 0, transition: { duration: 0.2 } }}
+              style={{ overflow: 'hidden' }}
             >
-              <Post post={selectedPost} isPermalink />
-              <motion.section
-                initial={{ height: 0 }}
-                animate={{
-                  height: 'auto',
-                  transition: { delay: 0.4, duration: 0.2 },
-                }}
-                exit={{ height: 0, transition: { duration: 0.2 } }}
-                style={{ overflow: 'hidden' }}
-              >
-                <Replies post={selectedPost} />
-              </motion.section>
-            </motion.article>
-          </FocusTrap>
+              <Replies post={selectedPost} />
+            </motion.section>
+          </motion.article>
+
           <motion.div
             initial={{ opacity: 0 }}
             animate={{
