@@ -85,7 +85,6 @@ export const Replies = ({ post }) => {
                 type="text"
                 variant="subtle"
                 placeholder={`Reply to ${post.author.name}`}
-                autoFocus
                 autoComplete="off"
                 css={{ paddingX: 0, height: 'Avatar.small' }}
                 onFocus={() => setFocus(true)}

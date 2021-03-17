@@ -42,12 +42,12 @@ export const reducer = (state, action) => {
       };
     }
     case actions.LOAD_NEW_POSTS: {
-      return { ...state, newPosts: true };
+      return { ...state, hasNewPosts: true };
     }
     case actions.SHOW_NEW_POSTS: {
       return {
         ...state,
-        newPosts: false,
+        hasNewPosts: false,
         posts: [...newPosts, ...state.posts],
       };
     }
