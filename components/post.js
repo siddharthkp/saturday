@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { Stack, Avatar, Image, Text, Button, Element } from 'react-ui';
 import { useState } from '../state';
 import { ago } from '../utils';
@@ -57,26 +56,23 @@ export const Post = ({ post, onSelect, isPermalink = false }) => {
             <span>{post.author.name}</span>
           </Stack>
 
-          <AnimatePresence>
-            {isPermalink && selectedPostId && (
-              <Button
-                as={motion.button}
-                variant="icon"
-                onClick={() => dispatch({ type: actions.DESELECT_POST })}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1, transition: { delay: 0.5 } }}
-                exit={{ opacity: 0, transition: { duration: 0.01 } }}
-                css={{
-                  paddingX: 0,
-                  size: 10,
-                  marginRight: -12,
-                  marginTop: -4,
-                }}
-              >
-                <CloseIcon />
-              </Button>
-            )}
-          </AnimatePresence>
+          {isPermalink && selectedPostId && (
+            <Button
+              variant="icon"
+              onClick={() => {
+                dispatch({ type: actions.DESELECT_POST });
+                history.pushState({}, null, '/');
+              }}
+              css={{
+                paddingX: 0,
+                size: 10,
+                marginRight: -12,
+                marginTop: -4,
+              }}
+            >
+              <CloseIcon />
+            </Button>
+          )}
         </Stack>
 
         <div style={post.style || { whiteSpace: 'pre-line' }}>{post.body}</div>

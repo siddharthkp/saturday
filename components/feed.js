@@ -1,6 +1,5 @@
 import React from 'react';
 import { Stack, Button } from 'react-ui';
-import { motion } from 'framer-motion';
 
 import { Header } from './header';
 import { Post } from './post';
@@ -29,7 +28,7 @@ export const Feed = () => {
       <Header
         isHome={true}
         scrollTop={() => {
-          mainRef.current.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+          mainRef.current.scrollTo({ top: 0, left: 0 });
         }}
       />
 
@@ -44,9 +43,6 @@ export const Feed = () => {
       >
         {hasNewPosts && (
           <Button
-            as={motion.button}
-            initial={{ height: 0 }}
-            animate={{ height: 'auto' }}
             variant="link"
             fullWidth
             onClick={() => dispatch({ type: actions.SHOW_NEW_POSTS })}
@@ -61,8 +57,7 @@ export const Feed = () => {
           css={{ maxWidth: 600, marginX: 'auto' }}
         >
           {posts.map((post) => (
-            <motion.li
-              layout
+            <li
               key={post.id}
               data-id={post.id}
               style={{ opacity: post.id === selectedPostId ? 0 : 1 }}
@@ -77,7 +72,7 @@ export const Feed = () => {
                   );
                 }}
               />
-            </motion.li>
+            </li>
           ))}
         </Stack>
         <SelectedPost />

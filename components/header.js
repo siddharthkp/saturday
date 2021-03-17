@@ -32,8 +32,10 @@ export const Header = ({ isHome = false, scrollTop }) => {
           },
         }}
         onClick={() => {
-          if (state.selectedPostId) dispatch({ type: actions.DESELECT_POST });
-          else scrollTop();
+          if (state.selectedPostId) {
+            dispatch({ type: actions.DESELECT_POST });
+            history.pushState({}, null, '/');
+          } else scrollTop();
         }}
         onContextMenu={(event) => {
           event.preventDefault();

@@ -1,16 +1,13 @@
 import React from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { Stack, Avatar, Text, Input } from 'react-ui';
 import VisuallyHidden from '@reach/visually-hidden';
-import { user } from '../data';
+
 import { useState } from '../state';
 import { ago } from '../utils';
 
 export const Replies = ({ post }) => {
-  const { actions, dispatch } = useState();
+  const { state, actions, dispatch } = useState();
   const replies = post.replies || [];
-
-  const [hasFocus, setFocus] = React.useState(false);
 
   return (
     <>
@@ -24,14 +21,7 @@ export const Replies = ({ post }) => {
         css={{ paddingY: 8, paddingX: 6 }}
       >
         {replies.map((reply, index) => (
-          <Stack
-            as={motion.li}
-            key={index}
-            justify="space-between"
-            align="center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-          >
+          <Stack key={index} justify="space-between" align="center">
             <Stack align="center" gap={2}>
               <Stack gap={2} align="center">
                 <Avatar src={reply.author.avatar} size="small" />
@@ -63,7 +53,7 @@ export const Replies = ({ post }) => {
                 });
               }}
             >
-              <Avatar src={user.avatar} size="small" />
+              <Avatar src={state.user.avatar} size="small" />
 
               <Input
                 name="reply"
@@ -72,8 +62,6 @@ export const Replies = ({ post }) => {
                 placeholder={`Reply to ${post.author.name}`}
                 autoComplete="off"
                 css={{ paddingX: 0, height: 'Avatar.small' }}
-                onFocus={() => setFocus(true)}
-                onBlur={() => setFocus(false)}
               />
             </Stack>
           </Stack>

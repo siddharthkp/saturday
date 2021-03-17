@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 
 import { HEADER_HEIGHT } from './header';
 import { Post } from './post';
@@ -22,23 +21,8 @@ export const SelectedPost = () => {
     selectedPost = newPosts.find((post) => post.id === selectedPostId);
   }
 
-  const element = document.querySelector(`[data-id="${selectedPostId}"]`);
-
-  let initialY = 0;
-  if (element) {
-    const rect = element.getBoundingClientRect();
-    initialY = rect.top - HEADER_HEIGHT;
-  }
-
-  const [dragOffset, setDragOffset] = React.useState(0);
-
   return (
-    <AnimatePresence
-      initial={isPermalink ? false : true}
-      onExitComplete={() => {
-        history.pushState(null, null, '/');
-      }}
-    >
+    <>
       {selectedPostId && (
         <section
           style={{
@@ -50,42 +34,14 @@ export const SelectedPost = () => {
             justifyContent: 'center',
           }}
         >
-          <motion.article
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            style={{ zIndex: 2, width: '100%', maxWidth: 600 }}
-            drag="y"
-            dragConstraints={{ top: 0, bottom: 0 }}
-            dragMomentum={false}
-            onDrag={(event, info) => {
-              setDragOffset(info.offset.y);
-            }}
-            onDragEnd={(event, info) => {
-              setDragOffset(0);
-              if (info.offset.y > 100 || info.offset.y < -100) {
-                dispatch({ type: actions.DESELECT_POST });
-              }
-            }}
-          >
+          <article style={{ zIndex: 2, width: '100%', maxWidth: 600 }}>
             <Post post={selectedPost} isPermalink />
-            <motion.section
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              style={{ overflow: 'hidden' }}
-            >
+            <section>
               <Replies post={selectedPost} />
-            </motion.section>
-          </motion.article>
+            </section>
+          </article>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{
-              opacity: 1 - dragOffset / 1000,
-              transition: { duration: 0.1 },
-            }}
-            exit={{ opacity: 0, transition: { delay: 0.15, duration: 0.1 } }}
+          <div
             style={{
               position: 'absolute',
               top: 0,
@@ -95,9 +51,9 @@ export const SelectedPost = () => {
               background: 'white',
               zIndex: 1,
             }}
-          ></motion.div>
+          ></div>
         </section>
       )}
-    </AnimatePresence>
+    </>
   );
 };
