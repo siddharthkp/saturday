@@ -33,11 +33,11 @@ The ONLY thing that kept me excited for today this year was seeing Twitter makin
     timestamp: 'Mar 19, 2021 10:07 AM',
     style: { whiteSpace: 'pre' },
     body: `
-          guys on twitter with great                highly experienced 
-                career prospects                            women devs
-                                                            🤝
+guys on twitter with great             highly experienced 
+      career prospects                         women devs
+                                               🤝
 
-                                                #juniordevforlife
+                                   #juniordevforlife
 
 `,
     replies: [
