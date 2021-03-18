@@ -33,7 +33,12 @@ export const Header = ({ isHome = false, scrollTop }) => {
         }}
         onClick={() => {
           if (state.selectedPostId) dispatch({ type: actions.DESELECT_POST });
-          else scrollTop();
+          else {
+            scrollTop();
+            setTimeout(() => {
+              dispatch({ type: actions.LOAD_NEW_POSTS });
+            }, 750);
+          }
         }}
         onContextMenu={(event) => {
           event.preventDefault();
