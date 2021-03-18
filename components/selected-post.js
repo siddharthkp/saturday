@@ -53,18 +53,18 @@ export const SelectedPost = () => {
             animate={{ y: 0, transition: { duration: 0.3, delay: 0.1 } }}
             exit={{ y: initialY, transition: { duration: 0.2 } }}
             style={{ zIndex: 2, width: '100%', maxWidth: 600 }}
-            drag="y"
-            dragConstraints={{ top: 0, bottom: 0 }}
-            dragMomentum={false}
-            onDrag={(event, info) => {
-              setDragOffset(info.offset.y);
-            }}
-            onDragEnd={(event, info) => {
-              setDragOffset(0);
-              if (info.offset.y > 100 || info.offset.y < -100) {
-                dispatch({ type: actions.DESELECT_POST });
-              }
-            }}
+            // drag="y"
+            // dragConstraints={{ top: 0, bottom: 0 }}
+            // dragMomentum={false}
+            // onDrag={(event, info) => {
+            //   setDragOffset(info.offset.y);
+            // }}
+            // onDragEnd={(event, info) => {
+            //   setDragOffset(0);
+            //   if (info.offset.y > 100 || info.offset.y < -100) {
+            //     dispatch({ type: actions.DESELECT_POST });
+            //   }
+            // }}
           >
             <Post post={selectedPost} isPermalink />
             <Replies post={selectedPost} />
