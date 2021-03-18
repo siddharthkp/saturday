@@ -1,11 +1,13 @@
 import React from 'react';
-import { Stack, Image, Element } from 'react-ui';
+import { Stack, Image, Element, Text } from 'react-ui';
 import { useState } from '../state';
 
 export const HEADER_HEIGHT = 88;
 
 export const Header = ({ isHome = false, scrollTop }) => {
   const { state, actions, dispatch } = useState();
+
+  const [showURL, setShowURL] = React.useState(false);
 
   return (
     <Element
@@ -40,8 +42,18 @@ export const Header = ({ isHome = false, scrollTop }) => {
             }, 750);
           }
         }}
+        onContextMenu={(event) => {
+          // lol secret trick to reveal url
+          event.preventDefault();
+          setShowURL(true);
+        }}
       >
         <Image width="200px" src="/logo.png" />
+        {showURL && (
+          <Text size={6} css={{ fontStyle: 'italic', lineHeight: 2 }}>
+            vercel.app
+          </Text>
+        )}
       </Stack>
     </Element>
   );

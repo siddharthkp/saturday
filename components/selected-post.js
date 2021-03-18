@@ -76,7 +76,10 @@ export const SelectedPost = () => {
               opacity: 1 - dragOffset / 1000,
               transition: { duration: 0.1 },
             }}
-            exit={{ opacity: 0, transition: { delay: 0.15, duration: 0.1 } }}
+            exit={{
+              opacity: 0,
+              transition: { delay: 0.15, duration: 0.1 },
+            }}
             style={{
               position: 'absolute',
               top: 0,
