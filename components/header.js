@@ -40,10 +40,6 @@ export const Header = ({ isHome = false, scrollTop }) => {
             }, 750);
           }
         }}
-        onContextMenu={(event) => {
-          event.preventDefault();
-          dispatch({ type: actions.LOAD_NEW_POSTS });
-        }}
       >
         <Image width="200px" src="/logo.png" />
       </Stack>
