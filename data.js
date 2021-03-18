@@ -79,7 +79,7 @@ guys on twitter with great             highly experienced
     replies: [],
   },
   {
-    id: 'sid',
+    id: 'repo',
     author: {
       name: 'Sid',
       username: 'siddharthkp',
@@ -89,11 +89,31 @@ guys on twitter with great             highly experienced
     body: `Here's the repo for this example app`,
     embed: {
       type: 'github',
-      title: 'siddharthkp/saturday',
+      title: 'saturday.vercel.com',
       image: 'https://image.flaticon.com/icons/png/512/25/25231.png',
       link: {
-        title: 'github.com',
+        title: 'siddharthkp/saturday',
         href: 'https://github.com/siddharthkp/saturday',
+      },
+    },
+    replies: [],
+  },
+  {
+    id: 'ir',
+    author: {
+      name: 'Sid',
+      username: 'siddharthkp',
+      avatar: 'https://github.com/siddharthkp.png',
+    },
+    timestamp: 'Mar 19, 2021 10:07 AM',
+    body: `I'm making a course on this topic :)`,
+    embed: {
+      type: 'github',
+      title: 'Build truly Interactive React applications',
+      image: 'https://interactive-react.com/favicon.png',
+      link: {
+        title: 'Interactive React',
+        href: 'https://interactive-react.com',
       },
     },
     replies: [],

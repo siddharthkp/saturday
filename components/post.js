@@ -85,7 +85,11 @@ export const Post = ({ post, onSelect, isPermalink = false }) => {
             {post.embed.type === 'image' && (
               <Image
                 src={post.embed.image}
-                css={{ borderRadius: 2, maxHeight: '40vh', objectFit: 'cover' }}
+                css={{
+                  borderRadius: 2,
+                  maxHeight: '40vh',
+                  objectFit: 'cover',
+                }}
               />
             )}
             {post.embed.type === 'github' && (
