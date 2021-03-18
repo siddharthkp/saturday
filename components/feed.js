@@ -45,8 +45,8 @@ export const Feed = () => {
         {hasNewPosts && (
           <Button
             as={motion.button}
-            initial={{ height: 0 }}
-            animate={{ height: 'auto' }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             variant="link"
             fullWidth
             onClick={() => dispatch({ type: actions.SHOW_NEW_POSTS })}
@@ -62,9 +62,10 @@ export const Feed = () => {
         >
           {posts.map((post) => (
             <motion.li
-              layout
               key={post.id}
               data-id={post.id}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               style={{ opacity: post.id === selectedPostId ? 0 : 1 }}
             >
               <Post
