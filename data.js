@@ -128,18 +128,6 @@ The ONLY thing that kept me excited for today this year was seeing Twitter makin
     timestamp: new Date(),
     replies: [],
   },
-  // {
-  //   id: 'srbh2',
-  //   author: {
-  //     name: 'Saurabh',
-  //     username: 'saurabhcodes',
-  //     avatar:
-  //       'https://pbs.twimg.com/profile_images/1342537950651764737/vRpqLxVF_400x400.jpg',
-  //   },
-  //   body: `We randomly decided to walk 12km as an evening walk 🤭`,
-  //   timestamp: new Date(),
-  //   replies: [],
-  // },
   {
     id: 'aa3i3',
     author: {
