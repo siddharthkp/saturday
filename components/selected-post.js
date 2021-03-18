@@ -22,11 +22,11 @@ export const SelectedPost = () => {
     selectedPost = newPosts.find((post) => post.id === selectedPostId);
   }
 
-  const element = document.querySelector(`[data-id="${selectedPostId}"]`);
+  const postElement = document.querySelector(`[data-id="${selectedPostId}"]`);
 
   let initialY = 0;
-  if (element) {
-    const rect = element.getBoundingClientRect();
+  if (postElement) {
+    const rect = postElement.getBoundingClientRect();
     initialY = rect.top - HEADER_HEIGHT;
   }
 
