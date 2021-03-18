@@ -7,19 +7,15 @@ export const user = {
 
 export const posts = [
   {
-    id: 'ioewj3',
+    id: 'aa1i3',
     author: {
-      name: 'Megha',
-      username: 'Megha_Pathak_',
+      name: 'Nitish',
+      username: 'nitish24p',
       avatar:
-        'https://pbs.twimg.com/profile_images/1355515222455447554/vh5ohEKK_400x400.jpg',
+        'https://pbs.twimg.com/profile_images/1110378869473853440/4drIaD4g_400x400.png',
     },
-    timestamp: 'Mar 19, 2021 10:07 AM',
-    body: `
-I turned 21 today! 🥳🎂
-
-The ONLY thing that kept me excited for today this year was seeing Twitter making balloons float on my profile. 🤣🤣
-`,
+    timestamp: new Date(),
+    body: `Koi please yeh england bowlers ko Frooti de do, looks like they'll collapse in the Ahmedabad heat.`,
     replies: [],
   },
   {
@@ -83,21 +79,21 @@ guys on twitter with great             highly experienced
     replies: [],
   },
   {
-    id: 'aa3i3',
+    id: 'sid',
     author: {
-      name: 'Prateek',
-      username: '_prateekbh',
-      avatar: 'https://github.com/prateekbh.png',
+      name: 'Sid',
+      username: 'siddharthkp',
+      avatar: 'https://github.com/siddharthkp.png',
     },
     timestamp: 'Mar 19, 2021 10:07 AM',
-    body: `Opening my Github profile repo for AMA:`,
+    body: `Here's the repo for this example app`,
     embed: {
       type: 'github',
-      title: 'prateekbh/prateekbh',
+      title: 'siddharthkp/saturday',
       image: 'https://image.flaticon.com/icons/png/512/25/25231.png',
       link: {
         title: 'github.com',
-        href: 'https://github.com/prateekbh/prateekbh/issues',
+        href: 'https://github.com/siddharthkp/saturday',
       },
     },
     replies: [],
@@ -106,9 +102,24 @@ guys on twitter with great             highly experienced
 
 export const newPosts = [
   {
+    id: 'ioewj3',
+    author: {
+      name: 'Megha',
+      username: 'Megha_Pathak_',
+      avatar:
+        'https://pbs.twimg.com/profile_images/1355515222455447554/vh5ohEKK_400x400.jpg',
+    },
+    timestamp: 'Mar 19, 2021 10:07 AM',
+    body: `I turned 21 today! 🥳🎂
+
+The ONLY thing that kept me excited for today this year was seeing Twitter making balloons float on my profile. 🤣🤣`,
+    replies: [],
+  },
+
+  {
     id: 'pe3oc',
     author: {
-      name: 'Sanket Sahu',
+      name: 'Sanket',
       username: 'sanketsahu',
       avatar:
         'https://pbs.twimg.com/profile_images/1369921787568422915/hoyvrUpc_400x400.jpg',
@@ -117,16 +128,27 @@ export const newPosts = [
     timestamp: new Date(),
     replies: [],
   },
+  // {
+  //   id: 'srbh2',
+  //   author: {
+  //     name: 'Saurabh',
+  //     username: 'saurabhcodes',
+  //     avatar:
+  //       'https://pbs.twimg.com/profile_images/1342537950651764737/vRpqLxVF_400x400.jpg',
+  //   },
+  //   body: `We randomly decided to walk 12km as an evening walk 🤭`,
+  //   timestamp: new Date(),
+  //   replies: [],
+  // },
   {
-    id: 'srbh2',
+    id: 'aa3i3',
     author: {
-      name: 'Saurabh',
-      username: 'saurabhcodes',
-      avatar:
-        'https://pbs.twimg.com/profile_images/1342537950651764737/vRpqLxVF_400x400.jpg',
+      name: 'Prateek',
+      username: '_prateekbh',
+      avatar: 'https://github.com/prateekbh.png',
     },
-    body: `We randomly decided to walk 12km as an evening walk 🤭`,
     timestamp: new Date(),
+    body: `2020 @taylorswift13 is such a vibe`,
     replies: [],
   },
 ];
