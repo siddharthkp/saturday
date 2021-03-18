@@ -32,3 +32,21 @@ p {
 ul {
   list-style: none;
 }
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #0052ec;
+  border-right-color: #0052ec40;
+  border-radius: 50%;
+  animation: loader-rotate 1s linear infinite;
+}
+
+@keyframes loader-rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

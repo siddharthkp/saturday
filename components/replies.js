@@ -15,6 +15,19 @@ export const Replies = ({ post }) => {
       <VisuallyHidden>
         <span>Replies</span>
       </VisuallyHidden>
+      {/* <Stack
+        as={motion.div}
+        gap={2}
+        align="center"
+        marginX={7}
+        marginY={9}
+        initial={{ opacity: 1 }}
+        animate={{ opacity: 0 }}
+        transition={{ duration: 0.01, delay: 1 }}
+        style={{ position: 'absolute' }}
+      >
+        <div className="spinner" /> <Text>Loading replies</Text>
+      </Stack> */}
       <Stack
         as={motion.ul}
         initial={{ opacity: 0 }}
