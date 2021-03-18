@@ -14,7 +14,7 @@ export const posts = [
       avatar:
         'https://pbs.twimg.com/profile_images/1110378869473853440/4drIaD4g_400x400.png',
     },
-    timestamp: new Date(),
+    timestamp: 'Mar 20, 2021 1:55 PM',
     body: `Koi please yeh england bowlers ko Frooti de do, looks like they'll collapse in the Ahmedabad heat.`,
     replies: [],
   },
@@ -26,7 +26,7 @@ export const posts = [
       avatar:
         'https://pbs.twimg.com/profile_images/1007052431295856640/9D9qHTV6_400x400.jpg',
     },
-    timestamp: 'Mar 19, 2021 10:07 AM',
+    timestamp: 'Mar 20, 2021 10:00 AM',
     style: { whiteSpace: 'pre' },
     body: `
 guys on twitter with great             highly experienced 
@@ -45,7 +45,7 @@ guys on twitter with great             highly experienced
             'https://pbs.twimg.com/profile_images/1298933888169971712/fj0dQ0M9_400x400.jpg',
         },
         body: `🥵`,
-        timestamp: 'Mar 19, 2021 10:07 AM',
+        timestamp: 'Mar 20, 2021 10:30 AM',
       },
       {
         author: {
@@ -55,7 +55,7 @@ guys on twitter with great             highly experienced
             'https://pbs.twimg.com/profile_images/1366050993964605441/4lJJUpr7_400x400.jpg',
         },
         body: `ouch!`,
-        timestamp: 'Mar 19, 2021 10:07 AM',
+        timestamp: 'Mar 20, 2021 10:35 AM',
       },
     ],
   },
@@ -67,7 +67,7 @@ guys on twitter with great             highly experienced
       avatar:
         'https://pbs.twimg.com/profile_images/1279389930620215296/QFbB4JhB_400x400.jpg',
     },
-    timestamp: 'Mar 19, 2021 10:07 AM',
+    timestamp: 'Mar 19, 2021 10:00 AM',
     body: `Amazing things will happen 💖
     
     Art + calligraphy`,
@@ -85,7 +85,7 @@ guys on twitter with great             highly experienced
       username: 'siddharthkp',
       avatar: 'https://github.com/siddharthkp.png',
     },
-    timestamp: 'Mar 19, 2021 10:07 AM',
+    timestamp: 'Mar 20, 2021 02:00 PM',
     body: `Here's the repo for this example app`,
     embed: {
       type: 'github',
@@ -105,7 +105,7 @@ guys on twitter with great             highly experienced
       username: 'siddharthkp',
       avatar: 'https://github.com/siddharthkp.png',
     },
-    timestamp: 'Mar 19, 2021 10:07 AM',
+    timestamp: 'Mar 20, 2021 02:00 PM',
     body: `I'm making a course on this topic :)`,
     embed: {
       type: 'github',
@@ -129,7 +129,7 @@ export const newPosts = [
       avatar:
         'https://pbs.twimg.com/profile_images/1355515222455447554/vh5ohEKK_400x400.jpg',
     },
-    timestamp: 'Mar 19, 2021 10:07 AM',
+    timestamp: new Date(),
     body: `I turned 21 today! 🥳🎂
 
 The ONLY thing that kept me excited for today this year was seeing Twitter making balloons float on my profile. 🤣🤣`,
