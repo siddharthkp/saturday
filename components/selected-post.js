@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 
 import { HEADER_HEIGHT } from './header';
 import { Post } from './post';
@@ -7,6 +7,7 @@ import { Replies } from './replies';
 import { useState } from '../state';
 
 export const SelectedPost = () => {
+  // const shouldReduceMotion = useReducedMotion()
   if (typeof document === 'undefined') return null;
 
   const {
