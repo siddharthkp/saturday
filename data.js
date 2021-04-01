@@ -15,7 +15,7 @@ export const posts = [
         'https://pbs.twimg.com/profile_images/1110378869473853440/4drIaD4g_400x400.png',
     },
     timestamp: 'Mar 20, 2021 1:55 PM',
-    body: `Koi please yeh england bowlers ko Frooti de do, looks like they'll collapse in the Ahmedabad heat.`,
+    body: `Does anyone still use business cards??`,
     replies: [],
   },
   {
